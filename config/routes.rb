@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :articles
   root 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
