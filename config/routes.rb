@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
-  resources :articles
-  root 'articles#index'
+
+  devise_for :admins, :controllers => { registrations: 'admins/registrations', sessions: 'admins/sessions' }
+  root to: 'articles#index' 
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy' 
+  resources :articles 
+  resources :topics
+  resources :categories
+  get '/directory' => 'articles#directory', as: 'directory'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -15,6 +15,7 @@ gem 'bootsy', '2.2.1'
 gem 'carrierwave', '~> 0.10'
 gem 'remotipart', '~> 1.2'
 gem 'sprockets-rails', '~> 2.3'
+gem 'devise'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do

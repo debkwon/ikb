@@ -1,0 +1,29 @@
+<div class = "container">
+<h4><%=link_to "Edit Article", edit_article_path(@article)%></h4>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="box1"><%= @article.title %><br />
+				<%= @article.content.html_safe %>
+			</div>
+		
+	</div>
+		<div class="col-md-4 pull-right">
+			<div class="box2">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="panel-title">About This Article</h3>
+					</div>
+				<br />
+				<div class="panel-body">
+					<ul>
+						<li><%= "Found In: #{@article.topic.category.name}/#{@article.topic.name}"%></li><br />
+						<li><%= "Author: #{@article.author}"%></li><br />
+						<li><%= "Created at: #{@article.created_at.localtime.strftime("%B %d, %Y %l:%M %P %Z")}" %></li>
+						<br />
+						<li><%= "Updated at: #{@article.updated_at.localtime.strftime("%B %d, %Y %l:%M %P %Z")}" %></li>
+					</ul>
+				</div>	
+			</div>
+	
+	</div>
+</div>

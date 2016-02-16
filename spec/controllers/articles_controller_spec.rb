@@ -21,4 +21,12 @@ RSpec.describe ArticlesController, type: :controller do
 			expect(response).to render_template("new")
 		end
 	end
+
+	describe "GET #create" do
+		it "shows the newly published article" do
+			@article = Article.new(title: "Article Title", content: "meow.meow.meow")
+			@article.save
+			expect(response).to render_template("show")
+		end
+	end
 end

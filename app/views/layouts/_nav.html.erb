@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Full Directory <span class="sr-only">(current)</span></a></li>
+        <li class="active"><%= link_to "Full Directory", directory_path %><span class="sr-only">(current)</span></li>
         <li><a href="#">Really not sure</a></li>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -22,16 +22,25 @@
         </div>
         <button type="submit" class="btn btn-default">Go</button>
       </form>
+
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Action<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%=link_to "Create Article", new_article_path %></li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create...<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><%=link_to "Article", new_article_path %></li>
+            <li><%=link_to "Topic", "#" %></li>
+            <li><%=link_to "Category", "#" %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Full Directory</a></li>
+            <li><%= link_to "Full Directory", directory_path%></li>
           </ul>
         </li>
-        <button type="button" class="btn btn-default navbar-btn">Log out</button>
+
+          <li class="dropdown">
+           <a href= "#"<class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_admin.first_name + " " + current_admin.last_name %><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Log Out", destroy_admin_session_path, method: :delete %></li>
+          </ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
