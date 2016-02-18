@@ -13,7 +13,7 @@
 					  	<ul>
 					  		<%topic.articles.each do |article| %>
 					  			<li>
-										<% if article.is_draft %>
+									<% if article.is_draft %>
 							    		<%= link_to article_path(article) do%>
 							    			<%= article.title%> <span class="glyphicon glyphicon-pencil"></span>
 							    		<% end %>
@@ -31,9 +31,8 @@
 	</div>
 </div>
 
-<% if @articles.present? && params[:search].present? %>
+<% if @search_results.present?%>
 	<%= render partial: 'shared/search' %>
-<% if params[:search].nil? %>
-	<%= flash[:warning] = "There were no articles matching the terms '#{params[:search]}'" %>
-<% end %>
+<% elsif params[:search].present? && @search_results.empty? %>
+	<%= "There were no articles matching the terms '#{params[:search]}'" %>
 <% end %>

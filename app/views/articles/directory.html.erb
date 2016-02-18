@@ -25,11 +25,10 @@
 			<% end %>	
 		</div>
 		<div class="col-md-3 pull-right">
-			<% if @articles.present? && params[:search].present? %>
+			<% if @search_results.present?%>
 				<%= render partial: 'shared/search' %>
-			<% if params[:search].nil? %>
-  			<%= flash[:warning] = "There were no articles matching the terms '#{params[:search]}'" %>
-			<% end %>
+			<% elsif params[:search].present? && @search_results.empty? %>
+			<%= "There were no articles matching the terms '#{params[:search]}'" %>
 			<% end %>
 		</div>
 	</div>

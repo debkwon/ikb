@@ -1,6 +1,19 @@
-<h4>List of Topics</h4>
-<% @topics.each do |topic| %>
-	<ul class="indentless">
-	<li><%= link_to topic.name, edit_topic_path(topic)%></li>
-	</ul>
-<% end %>
+<div class= "container">
+	<div class="row">	
+		<div class="col-md-9">
+			<h4>List of Topics</h4>
+			<% @topics.each do |topic| %>
+				<ul class="indentless">
+				<li><%= link_to topic.name, edit_topic_path(topic)%></li>
+				</ul>
+			<% end %>
+		</div>
+		<div class="col-md-3 pull-right">
+			<% if @search_results.present?%>
+				<%= render partial: 'shared/search' %>
+			<% elsif params[:search].present? && @search_results.empty? %>
+			<%= "There were no articles matching the terms '#{params[:search]}'" %>
+			<% end %>
+		</div>
+	</div>
+</div>

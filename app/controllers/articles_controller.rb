@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
 		def check_for_search
 			if params[:search].present?
-				@articles = Article.search(params[:search])
+				@search_results = Article.search(params[:search])
 			end
 		end
 

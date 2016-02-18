@@ -1,14 +1,27 @@
-<h4>List of Articles</h4>
-<% @articles.each do |article| %>
-	<ul class="indentless">
-		<li>
-			<% if article.is_draft %>
-	   		<%= link_to edit_article_path(article) do%>
-	   			<%= article.title%> <span class="glyphicon glyphicon-pencil"></span>
-	  		<% end %>
-    	<% else %>
-    		<%= link_to article.title, edit_article_path(article) %>
-    	<% end %>
-		</li>
-	</ul>
-<% end %>
+<div class= "container">
+	<div class="row">	
+		<div class="col-md-9">
+			<h4>List of Articles</h4>
+			<% @articles.each do |article| %>
+				<ul class="indentless">
+					<li>
+						<% if article.is_draft %>
+				   		<%= link_to edit_article_path(article) do%>
+				   			<%= article.title%> <span class="glyphicon glyphicon-pencil"></span>
+				  		<% end %>
+			    	<% else %>
+			    		<%= link_to article.title, edit_article_path(article) %>
+			    	<% end %>
+					</li>
+				</ul>
+			<% end %>
+		</div>
+		<div class="col-md-3 pull-right">
+			<% if @search_results.present?%>
+				<%= render partial: 'shared/search' %>
+			<% elsif params[:search].present? && @search_results.empty? %>
+			<%= "There were no articles matching the terms '#{params[:search]}'" %>
+			<% end %>
+		</div>
+	</div>
+</div>
