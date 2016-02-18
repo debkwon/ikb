@@ -25,12 +25,13 @@ class CategoriesController < ApplicationController
 		@category = Category.find(params[:id])
 		@category.update(category_params)
 		if @category.save
-			flash[:success] = "Category name updated."
+			flash[:success] = "Category named '#{@category.name}' has been updated."
 		end
+		redirect_to edit_categories_path
 	end
 
 	def change
-		@categories = Catgory.all
+		@categories = Category.all
 	end
 
 	def destroy

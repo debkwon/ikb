@@ -1,3 +1,6 @@
 <h3>Editing this article:</h3>
 
 <%= render partial: 'form' %>
+<br/>
+<%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Are you REALLY sure you want to delete the article '#{@article.title}'?"} %>
+

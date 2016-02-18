@@ -1,4 +1,6 @@
-<% form_for @article do |f| %>
-	
-
+<h4>List of Articles</h4>
+<% @articles.each do |article| %>
+	<ul class="indentless">
+	<li><%= link_to article.title, edit_article_path(article)%></li>
+	</ul>
 <% end %>

@@ -26,6 +26,6 @@
 <% if @articles.present? && params[:search].present? %>
 	<%= render partial: 'shared/search' %>
 <% if params[:search].nil? %>
-	<%= flash.now[:warning] = "There were no articles matching the terms '#{params[:search]}'" %>
+	<%= flash[:warning] = "There were no articles matching the terms '#{params[:search]}'" %>
 <% end %>
 <% end %>

@@ -53,4 +53,11 @@ class ArticlesController < ApplicationController
 		def change
 			@articles = Article.all
 		end
+
+		def destroy
+			@article = Article.find(params[:id])
+			flash[:warning] = "Article titled '#{@article.title}' deleted."
+			@article.destroy
+			redirect_to root_url
+		end
 end

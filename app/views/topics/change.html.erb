@@ -1,0 +1,6 @@
+<h4>List of Topics</h4>
+<% @topics.each do |topic| %>
+	<ul class="indentless">
+	<li><%= link_to topic.name, edit_topic_path(topic)%></li>
+	</ul>
+<% end %>

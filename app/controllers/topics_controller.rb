@@ -23,12 +23,13 @@ class TopicsController < ApplicationController
 		@topic = Topic.find(params[:id])
 	end
 
-	def create
+	def update
 		@topic = Topic.find(params[:id])
 		@topic.update(topic_params)
 		if @topic.save
-			flash[:success] = "Topic name updated."
+			flash[:success] = "Topic named '#{@topic.name}' updated."
 		end
+		redirect_to edit_topics_path
 	end
 
 	def change
