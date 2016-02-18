@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :topics
   resources :categories
   get '/directory' => 'articles#directory', as: 'directory'
-  get 'edit/articles' => 'articles#change', as: 'edit_articles'
-  get 'edit/topics' => 'topics#change', as: 'edit_topics'
-  get 'edit/categories' => 'categories#change', as: 'edit_categories'
+  get '/edit/articles' => 'articles#change', as: 'edit_articles'
+  get '/edit/topics' => 'topics#change', as: 'edit_topics'
+  get '/edit/categories' => 'categories#change', as: 'edit_categories'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
