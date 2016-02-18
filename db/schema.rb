@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215180557) do
+ActiveRecord::Schema.define(version: 20160218200813) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "first_name",             default: "", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160215180557) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "topic_id"
+    t.boolean  "is_draft"
   end
 
   add_index "articles", ["topic_id"], name: "index_articles_on_topic_id"

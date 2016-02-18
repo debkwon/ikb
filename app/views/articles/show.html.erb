@@ -5,7 +5,13 @@
 			<div class="box1">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title"><%= @article.title %></h3>
+						<h3 class="panel-title">
+							<%= @article.title %>
+							<% if @article.is_draft %>
+					    		 <span class="glyphicon glyphicon-pencil"></span>
+					    		
+					    	<% end %>
+						</h3>	
 					</div>
 						<div class="panel-body">
 						<%= @article.content.html_safe %>

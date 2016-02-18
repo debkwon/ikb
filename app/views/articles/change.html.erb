@@ -1,6 +1,14 @@
 <h4>List of Articles</h4>
 <% @articles.each do |article| %>
 	<ul class="indentless">
-	<li><%= link_to article.title, edit_article_path(article)%></li>
+		<li>
+			<% if article.is_draft %>
+	   		<%= link_to edit_article_path(article) do%>
+	   			<%= article.title%> <span class="glyphicon glyphicon-pencil"></span>
+	  		<% end %>
+    	<% else %>
+    		<%= link_to article.title, edit_article_path(article) %>
+    	<% end %>
+		</li>
 	</ul>
 <% end %>

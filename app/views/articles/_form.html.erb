@@ -12,6 +12,14 @@
 	<%= f.label :content %>
 	<%= f.bootsy_area :content, class: 'form-control', size: '60x12' %>
 
-	<%= f.submit "Publish", class: 'btn btn-primary' %>
+	
+	<br />
+
+	<%= f.check_box (:is_draft)%> <%= f.label (:is_draft) , "Draft?" %> 
+
+	<br />
+	<br />
+
+	<%= f.submit "Publish", class: 'btn btn-primary' %> 
 
 <% end %>
