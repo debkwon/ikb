@@ -2,7 +2,7 @@
 <%= form_for @article do |f| %>
 
 	<%= f.label :topic, "Category/Topic" %>
-	<%= f.grouped_collection_select(:topic, Category.all, :topics, :name, :id, :name, include_blank: "Select A Topic...", class: "form-control")%> 
+	<%= f.grouped_collection_select(:topic_id, Category.all, :topics, :name, :id, :name, include_blank: "Select A Topic...", class: "form-control")%> 
 
 	<br />
 	
