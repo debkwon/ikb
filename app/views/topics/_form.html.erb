@@ -1,0 +1,7 @@
+<%= form_for @topic do |f| %>
+	<h4>Choose the Category this Topic will belong to:</h4>
+	<%= collection_select(:category_id, :id, Category.all, :id, :name, :include_blank => "Select one...", class: "form-control") %><br /><br />
+	<%= f.label :name, "Topic Name" %>
+	<%= f.text_field :name, class: 'form-control' %><br />
+	<%= f.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>

@@ -5,11 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300|Lato' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<% if admin_signed_in? %>
-	<%= render 'layouts/nav' %>
-	<% end %>
+	 <%= render 'layouts/nav' %>
+  <% end %>
 
 	<% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>

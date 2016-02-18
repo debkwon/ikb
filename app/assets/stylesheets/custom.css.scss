@@ -2,6 +2,26 @@
 @import "bootstrap";
 @import "bootsy";
 
+$gray-medium-light: #eaeaea;
+
+//Navbar//
+.navbar-nav li{
+  padding-left:30px;
+  padding-right:30px;
+}
+
+//Fonts//
+
+body {
+  font-family: 'Lato Sans', sans-serif;
+}
+
+body h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  }
+
+
 html, body{height:100%; margin:0;padding:0}
  
 .container-fluid{
@@ -19,17 +39,9 @@ html, body{height:100%; margin:0;padding:0}
   margin:0 auto;
 }
 
-$gray-medium-light: #eaeaea;
-
-.row div {
-	font-family: 'Open sans', sans-serif; 
-
-
-}
 
 .category-box {
 	border: 1px dashed $gray-medium-light;
-	
 }
 
 .box1 {
@@ -44,3 +56,6 @@ ul {
 	list-style-type: none;
 	padding-left: 2px;
 	}
+li {
+  list-style: none;
+}

@@ -1,27 +1,31 @@
-<% categories = Category.all %>
-
 <% data_target_num = 1 %>
+
 <div class="container">
-	<div class = "row">
-		<% categories.each do |category| %>
-			<div class= "col-md-4 category-box">
+	<div class= "row">
+		<% @categories.each do |category| %>
+			<div class= "col-sm-4 category-box">
 			  <h3><%=category.name%></h3> 
 				  <% category.topics.each do |topic| %>
 					  <button type="button" class="btn btn-info" data-toggle="collapse" data-target= "#<%=data_target_num%>">
 						  <%=topic.name%>
-						</button>
-					  <div id=<%="#{data_target_num}"%> class="collapse">
-					  	<ul class="indentless">
-					  	<%topic.articles.each do |article| %>
-					    	<li><%= link_to article.title, article_path(article)%></li>
+							</button>
+					  <div id=<%=data_target_num%>  class="collapse" >
+					  	<ul>
+					  		<%topic.articles.each do |article| %>
+					    		<li><%= link_to article.title, article_path(article)%></li>
 					    </ul>
-					    </div>
-					    <% data_target_num +=1%>
-			    		<% end %>
-			    <% end %>
-			  		
-			</div>
-			<% end %>
-			</div>
+					    <% end %>
+					  </div>
+			    	<% data_target_num += 1 %>
+			    <% end %>	
+			 </div>
+		<% end %>		
 	</div>
 </div>
+
+<% if @articles.present? && params[:search].present? %>
+	<%= render partial: 'shared/search' %>
+<% if params[:search].nil? %>
+	<%= flash.now[:warning] = "There were no articles matching the terms '#{params[:search]}'" %>
+<% end %>
+<% end %>
