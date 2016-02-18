@@ -1,10 +1,6 @@
 class CategoriesController < ApplicationController
 	include CategoriesHelper
 
-	def index
-		@categories = Category.all
-	end
-
 	def new
 		@category = Category.new
 	end
@@ -13,8 +9,10 @@ class CategoriesController < ApplicationController
 		@category = Category.new(category_params)
 		if @category.save
 			flash[:success] = "You created a Category called #{@category.name}"
+			redirect_to root_url
+		else
+			render 'new'
 		end
-		redirect_to root_url
 	end
 
 	def edit
@@ -26,8 +24,11 @@ class CategoriesController < ApplicationController
 		@category.update(category_params)
 		if @category.save
 			flash[:success] = "Category named '#{@category.name}' has been updated."
+			redirect_to edit_categories_path
+		else 
+			render 'edit'
 		end
-		redirect_to edit_categories_path
+		
 	end
 
 	def change

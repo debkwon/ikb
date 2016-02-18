@@ -30,6 +30,8 @@ class ArticlesController < ApplicationController
 			if @article.save
 				flash[:success] = "Your article has been saved!"
 				redirect_to article_path(@article)
+			else 
+				render 'new'
 			end
 		end
 
@@ -46,8 +48,12 @@ class ArticlesController < ApplicationController
 			@current_admin_name = current_admin.first_name + " " + current_admin.last_name
 			@article.update(article_params)
 			@article.update_attributes(author: @current_admin_name)
-			flash[:success] = "'#{@article.title}' has been updated."
-			redirect_to article_path(@article)
+			if @article.save
+				flash[:success] = "'#{@article.title}' has been updated."
+				redirect_to article_path(@article)
+			else
+				render 'edit'
+			end
 		end
 
 		def change
