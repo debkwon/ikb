@@ -1,7 +1,7 @@
 <%= form_for @topic do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<%= collection_select(:topic, :category_id, Category.all, :id, :name, :include_blank => "Switch Category...", class: 'form-control') %><br /><br />
-	<%= f.label :name, "Topic Name", class: 'form-control' %>
+	<%= f.label :name, "Topic Name"%>
 	<%= f.text_field :name, class: 'form-control' %><br />
 	<%= f.submit 'Submit', class: 'btn btn-primary' %>
 <% end %>

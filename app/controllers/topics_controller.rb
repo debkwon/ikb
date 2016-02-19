@@ -16,7 +16,6 @@ class TopicsController < ApplicationController
 
 	def create
 		@topic = Topic.new(topic_params)
-		@topic.category_id = params[:category_id][:id]
 		if @topic.save
 			flash[:success] = "You added the '#{@topic.name}' to the Category '#{@topic.category.name}'."
 			redirect_to root_url

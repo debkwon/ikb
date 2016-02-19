@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+	it "raises an error when there's no name"
+	category = Category.new(name:nil)
+	expect{ category.save!}.to raise_error(ActiveRecord::RecordInvalid)
 end
