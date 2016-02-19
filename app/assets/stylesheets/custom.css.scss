@@ -12,15 +12,30 @@ $gray-medium-light: #eaeaea;
 
 //Fonts//
 
-body {
-  font-family: 'Lato Sans', sans-serif;
-}
+body h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  }
 
 body h4 {
   font-family: 'Roboto', sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   }
 
+body h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  }
+
+.link a {
+    color: #9d9daa; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    }
+
+.list-indent{
+  padding-left:1%;
+}
 
 html, body{height:100%; margin:0;padding:0}
  
@@ -42,6 +57,7 @@ html, body{height:100%; margin:0;padding:0}
 
 .category-box {
 	border: 1px dashed $gray-medium-light;
+  padding: 1%;
 }
 
 .box1 {

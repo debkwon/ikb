@@ -6,10 +6,10 @@
 			<div class= "col-sm-4 category-box">
 			  <h3><%=category.name%></h3> 
 				  <% category.topics.each do |topic| %>
-					  <button type="button" class="btn btn-info" data-toggle="collapsed-in" data-target= "#<%=data_target_num%>">
+					  <button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target= "#<%=data_target_num%>">
 						  <%=topic.name%>
 							</button>
-					  <div id=<%=data_target_num%>  class="collapsed-in" >
+					  <div id=<%=data_target_num%>  class="collapse" >
 					  	<ul>
 					  		<%topic.articles.each do |article| %>
 					  			<li>

@@ -2,16 +2,15 @@
 	<div class="row">	
 		<div class="col-md-9">
 			<h3>Internal Knowledge Base</h3>
+
 			<% @categories.each do |category| %>
 			  	<h4><%=category.name%></h4>
 			     <% category.topics.each do |topic| %>
-			     	<ul>
-						<li><i><%=topic.name%></i></li>
-					</ul>
+						<h5 class="list-indent"><%=topic.name%></h5>
 					<ul>
 				  		<%topic.articles.each do |article| %>
-				  			<li>
-									<% if article.is_draft %>
+				  			<li class="list-indent">
+								<% if article.is_draft %>
 							   		<%= link_to article_path(article) do%>
 							   			<%= article.title%> <span class="glyphicon glyphicon-pencil"></span>
 							  		<% end %>
@@ -21,7 +20,8 @@
 					    	</li>
 				    </ul>
 						<% end %>
-			    <% end %>	
+			    <% end %>
+			    <br>	
 			<% end %>	
 		</div>
 		<div class="col-md-3 pull-right">
