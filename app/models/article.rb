@@ -13,8 +13,8 @@ class Article < ActiveRecord::Base
 		i = 0
 		search_list = []
 			while i < search.length
-				search_list |= where("title LIKE ?", "%#{search[i]}%") #pushing only unique results into array
-				search_list |= where("content LIKE ?", "%#{search[i]}%")
+				search_list |= where("title ILIKE ?", "%#{search[i]}%") #pushing only unique results into array
+				search_list |= where("content ILIKE ?", "%#{search[i]}%")
 				i+=1
 			end
 		search_list #just to return this to articles controller
