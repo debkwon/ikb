@@ -16,6 +16,7 @@ gem 'carrierwave', '~> 0.10'
 gem 'remotipart', '~> 1.2'
 gem 'sprockets-rails', '~> 2.3'
 gem 'devise'
+gem 'sunspot_rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
@@ -26,6 +27,7 @@ end
 group :development do
   gem 'web-console'
   gem 'spring'
+  gem 'sunspot_solr'
 end
 
 gem 'rails_12factor', group: :production
