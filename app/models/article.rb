@@ -8,16 +8,11 @@ class Article < ActiveRecord::Base
  #    text :title, :content
 	# end
 
-	def self.search(search) #this search is checking for each word being present, but not for frequency
-		search = search.downcase.split
-		i = 0
+	def self.search(search)
 		search_list = []
-			while i < search.length
-				search_list |= where("title ILIKE ?", "%#{search[i]}%") #pushing only unique results into array
-				search_list |= where("content ILIKE ?", "%#{search[i]}%")
-				i+=1
-			end
-		search_list #just to return this to articles controller
+		sanitized_search = sanitize_sql_array(["to_tsquery('english', ?)", search.gsub(/\s/,"+")])
+		search_list |= where("textsearchable_index_col @@ #{sanitized_search}").order("ts_rank_cd(textsearchable_index_col, #{sanitized_search})desc limit 15")
+		search_list
 	end
 	
 end
