@@ -25,6 +25,12 @@ class ArticlesController < ApplicationController
 
 		def new
 			@article = Article.new
+			@categories = Category.all
+			@category_topics = Topic.all #just to generate something for the form
+		end
+
+		def update_topics
+			@topics = Category.find(params[:category_id]).topics
 		end
 
 		def create
@@ -45,6 +51,8 @@ class ArticlesController < ApplicationController
 
 		def edit
 			@article = Article.find(params[:id])
+			@categories = Category.all
+			@category_topics = Category.find(@article.category_id).topics
 		end
 
 		def update

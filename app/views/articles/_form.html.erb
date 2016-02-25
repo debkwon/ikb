@@ -1,9 +1,13 @@
 
 <%= form_for @article do |f| %>
-	<%= render 'shared/error_messages', object: f.object %>
-	<%= f.label :topic, "Category/Topic"%>
-	<%= f.grouped_collection_select(:topic_id, Category.all, :topics, :name, :id, :name, include_blank: "Select A Topic...", class: 'form-control')%> 
 
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<%= f.label :category, "Category" %>
+	<%= f.select(:category_id, @categories.collect { |category| [category.name, category.id] }, {:include_blank => "Select A Category..."}, {:class => 'categories_select'}) %>
+
+	<%= f.label :topic, "Topic" %>
+	<%= f.select(:topic_id, @category_topics.collect { |topic| [topic.name, topic.id] }, {:include_blank => "Select A Topic..."}, {:class => 'topics_select'}) %>
 	<br />
 	
 	<%= f.label :title%>
@@ -20,6 +24,6 @@
 	<br />
 	<br />
 
-	<%= f.submit "Publish", class: 'btn btn-primary' %> 
+<%= f.submit 'Publish', class: 'btn btn-primary' %>
 
 <% end %>
