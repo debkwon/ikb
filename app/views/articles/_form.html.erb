@@ -2,10 +2,12 @@
 <%= render partial: 'shared/multi_error_messages' %>
 
 	<%= f.label :category, "Category" %>
-	<%= f.select(:category_id, @categories.collect { |category| [category.name, category.id] }, {:include_blank => "Select a Category..."}, {:class => 'categories_select'}) %>
+	<%= f.select(:category_id, @categories.collect { |category| [category.name, category.id] }, {:include_blank => "Select a Category..."}, {:class => 'categories_select'}) %> 
 
-	<%= f.label :topic, "Topic" %>
-	<%= f.select(:topic_id, @category_topics.collect { |topic| [topic.name, topic.id] }, {:include_blank => "Select a Topic..."}, {:class => 'topics_select'}) %>
+<div id="hide-topic", style="display:none">
+		<%= f.label :topic, "Topic" %>
+		<%= f.select(:topic_id, @category_topics.collect { |topic| [topic.name, topic.id] }, {:include_blank => "Select a Topic..."}, {:class => 'topics_select'}) %>
+</div>
 	<br />
 	
 	<%= f.label :title%>
