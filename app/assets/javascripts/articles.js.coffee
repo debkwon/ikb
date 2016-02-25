@@ -8,9 +8,9 @@ $(document).ready ->
       url: "/update_topics"
       type: "GET"
       dataType: "script"
-      remote:true
+      remote: true
       data: 
         category_id: $('.categories_select option:selected').val()
-
+        
 
 

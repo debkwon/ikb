@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
 		end
 
 		def update_topics
-			@topics = Category.find(params[:category_id]).topics
+			@category_topics = Category.find(params[:category_id]).topics
 		end
 
 		def create
