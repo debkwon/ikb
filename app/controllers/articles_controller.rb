@@ -37,6 +37,8 @@ class ArticlesController < ApplicationController
 
 		def create
 			@article = Article.new(article_params)
+			@categories = Category.all
+			@category_topics = Topic.all
 			@current_admin_name = current_admin.first_name + " " + current_admin.last_name
 			@article.author = @current_admin_name
 			if @article.save
