@@ -25,6 +25,8 @@ class ArticlesController < ApplicationController
 
 		def new
 			@article = Article.new
+			@category = Category.new
+			@topic = Topic.new
 			@categories = Category.all
 			@category_topics = Topic.all #just to generate something for the form
 		end
@@ -57,15 +59,17 @@ class ArticlesController < ApplicationController
 
 		def update
 			@article = Article.find(params[:id])
+			@categories = Category.all
+			@category_topics = Category.find(@article.category_id).topics
 			@current_admin_name = current_admin.first_name + " " + current_admin.last_name
-			@article.update(article_params)
-			@article.update_attributes(author: @current_admin_name)
-			if @article.save
+			if @article.update(article_params)
+				@article.update_attributes(author: @current_admin_name)
 				flash[:success] = "'#{@article.title}' has been updated."
 				redirect_to article_path(@article)
-			else
+			else				
 				render 'edit'
 			end
+		
 		end
 
 		def change

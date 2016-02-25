@@ -3,10 +3,7 @@ class Article < ActiveRecord::Base
 	belongs_to :topic
 	validates :title, presence: true
 	validates :topic_id, presence: true
-
-	# searchable do
- #    text :title, :content
-	# end
+	validates	:category_id, presence: true
 
 	def self.search(search)
 		search_list = []
