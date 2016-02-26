@@ -25,11 +25,17 @@
 			<% end %>	
 		</div>
 		<div class="col-md-3 pull-right">
-			<% if @search_results.present?%>
-				<%= render partial: 'shared/search' %>
-			<% elsif params[:search].present? && @search_results.empty? %>
-			<%= "There were no articles matching the terms '#{params[:search]}'" %>
-			<% end %>
+
+		<%=	.results
+		  - @search.each_hit_with_result do |hit, post|
+		    .result
+		      %h2= h post.title
+		      %h6== (#{h hit.score})
+		      %p= h truncate(post.body, :length => 100)
+		.pagination
+		  = will_paginate(@search.results)
+		%>
+		
 		</div>
 	</div>
 </div>
