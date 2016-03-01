@@ -13,4 +13,12 @@ $(document).ready ->
         category_id: $('.categories_select option:selected').val()
         
 
-
+$(document).ready ->
+  $("category_search").on "submit", ->
+  $.ajax
+    url: "/search"
+    type: "GET"
+    dataType: "script"
+    remote: true
+    data:
+      category_id: $('.category_search option:selected').val()

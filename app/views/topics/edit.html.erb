@@ -1,3 +1,4 @@
 <h3>Editing topic belonging to: '<%= @topic.category.name %>' category. </h3>
 
 <%= render partial: 'topics/form' %>
+<%= render partial: 'shared/search' if @found_articles %>

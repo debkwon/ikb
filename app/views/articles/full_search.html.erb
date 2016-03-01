@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>More search options:</h2><br />
+  <%= form_tag do %>
+    <%= label_tag :category, "Show me matches only from:" %>
+    <%= select :category_id, options_for_select(@categories.collect { |category| [category.name, category.id] }), {:include_blank => "Select a Category..."}, {:class => "category_search"} %> <br />
+    
+    <%= label_tag(:is_draft, "Exclude Draft articles?") %>
+    <%= check_box_tag(:is_draft) %>  <br />
+  
+    <%= form_tag(request.original_url, method: :get, id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search articles..." %>
+    <br />
+    <%= submit_tag "Submit", class: "btn btn-primary btn-sm"%>
+    <% end %>
+  <% end %>
+</div>

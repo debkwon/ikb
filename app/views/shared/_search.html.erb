@@ -1,10 +1,10 @@
 <%= '.'*500 %>
 	<h3>Search Results</h3>
-	<% if params[:search].present? && @search_results.empty? %>
+	<% if @found_articles.empty? %>
 			<%= "There were no articles matching the terms '#{params[:search]}'" %>
 	<% end %>
 		<ul>
-			<% @search_results.each do |article| %>
+			<% @found_articles.each do |article| %>
 				<li>
 					<% if article.is_draft %>
 				  		<%= link_to article_path(article) do%>

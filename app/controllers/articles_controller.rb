@@ -3,14 +3,6 @@ class ArticlesController < ApplicationController
 	include TopicsHelper
 	include CategoriesHelper
 
-	before_action :check_for_search
-
-		def check_for_search
-			if params[:search].present?
-				@search_results = Article.search(params[:search])
-			end
-		end
-
 		def index
 			@categories = Category.all
 		end
@@ -78,6 +70,16 @@ class ArticlesController < ApplicationController
 			@articles = Article.all
 		end
 
+		def full_search
+			@article = Article.new
+			@categories = Category.all
+			@topics = Topic.all
+			@articles = Article.all
+  	end
+
+  	def full_search_results
+  	end
+  	
 		def destroy
 			@article = Article.find(params[:id])
 			flash[:warning] = "Article titled '#{@article.title}' deleted."

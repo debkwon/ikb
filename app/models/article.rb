@@ -10,11 +10,5 @@ class Article < ActiveRecord::Base
 		text :title
 		text :content
 	end
-
-	def search
-		@search = Article.search do
-			keywords(params[:q])
-		end
-	end
 	
 end

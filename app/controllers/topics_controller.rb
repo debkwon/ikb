@@ -1,14 +1,6 @@
 class TopicsController < ApplicationController
 	include TopicsHelper
 	
-	before_action :check_for_search
-
-	def check_for_search
-		if params[:search].present?
-			@search_results = Article.search(params[:search])
-		end
-	end
-
 	def new
 		@topic = Topic.new
 		@categories = Category.all
@@ -22,7 +14,6 @@ class TopicsController < ApplicationController
 		else
 			render 'new'
 		end
-		
 	end
 
 	def edit
