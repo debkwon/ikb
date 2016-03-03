@@ -71,10 +71,7 @@ class ArticlesController < ApplicationController
 		end
 
 		def full_search
-			@article = Article.new
 			@categories = Category.all
-			@topics = Topic.all
-			@articles = Article.all
   	end
 
   	def full_search_results

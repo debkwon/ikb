@@ -6,6 +6,8 @@ class Article < ActiveRecord::Base
 	validates  :topic_id, presence: true
 	validates	 :category_id, presence: true
 
+	attr_accessor :exclude_drafts
+
 	searchable do
 		text    :title
 		text    :content
