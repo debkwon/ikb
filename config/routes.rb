@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/test' => 'articles#test_page', as: 'test_page'
   get '/update_topics' => 'articles#update_topics', as: 'update_topics'
   get '/search' => 'articles#full_search', as: 'full_search'
-  post '/search' => 'articles#full_search_results', as: 'full_search_results'
+  get '/search/results' => 'articles#full_search_results', as: 'full_search_results'
   # resources :articles do
   #   collection do
   #     get: search

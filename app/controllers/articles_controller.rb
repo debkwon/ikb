@@ -78,6 +78,8 @@ class ArticlesController < ApplicationController
   	end
 
   	def full_search_results
+  		@categories = Category.all
+  		render 'full_search'
   	end
   	
 		def destroy

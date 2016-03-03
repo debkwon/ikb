@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
   before_action :check_for_search
 
   def check_for_search
-    if params[:search].present? 
-      @search = Article.search do 
-        fulltext params[:search]
-      end
-    @found_articles = @search.results
+    search = Article.search do
+      fulltext params[:search]
+      with(:category_id, params[:category_ids]) if params[:category_ids].present?  
+      with(:is_draft, 0) if params[:exclude_drafts].present?
     end
+    @found_articles = search.results
   end
 
 end
