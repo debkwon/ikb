@@ -13,18 +13,6 @@ Rails.application.routes.draw do
   get '/test' => 'articles#test_page', as: 'test_page'
   get '/update_topics' => 'articles#update_topics', as: 'update_topics'
   get '/search' => 'articles#full_search', as: 'full_search'
-  get '/search/results' => 'articles#full_search_results', as: 'full_search_results'
-  # resources :articles do
-  #   collection do
-  #     get: search
-  #   end
-  # end
-
-  # resources :categories do
-  #   collection do
-  #     get: search
-  #   end
-  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

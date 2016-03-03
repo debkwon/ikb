@@ -14,7 +14,7 @@ $(document).ready ->
         
 
 $(document).ready ->
-  $("category_search").on "submit", ->
+  $(".category_search").on "submit", ->
   $.ajax
     url: "/search"
     type: "GET"

@@ -73,11 +73,6 @@ class ArticlesController < ApplicationController
 		def full_search
 			@categories = Category.all
   	end
-
-  	def full_search_results
-  		@categories = Category.all
-  		render 'full_search'
-  	end
   	
 		def destroy
 			@article = Article.find(params[:id])
