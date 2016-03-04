@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>More search options:</h2><br />
+  <h3>More search options:</h3><br />
   <%= form_tag(request.original_url, method: :get) do %>
     <%= label_tag :category, "Show me matches only from:" %>
     <%= select_tag "category_ids", options_from_collection_for_select(@categories, "id", "name"), {:include_blank => "Select a Category...", :class => "category_select"}%><br />

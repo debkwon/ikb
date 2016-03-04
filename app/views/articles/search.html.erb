@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <%= render partial: "articles/search_form" %>
+    </div>
+    <div class="col-md-4">
+      <% if @found_articles.present? && (params[:search].present? || params[:category_ids].present? || params[:draft_status]).present? %>
+          <h3>Search Results</h3>
+            <ul>
+              <% @found_articles.each do |article| %>
+                <li>
+                  <% if article.is_draft %>
+                    <%= link_to article_path(article) do%>
+                        <%= article.title%> <span class="glyphicon glyphicon-pencil"></span>
+                    <% end %>
+                  <% else %>
+                    <%= link_to article.title, article_path(article) %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+      <% end %>
+
+      <% if @found_articles.empty? %>
+      <br />
+        <% no_results = "There were no articles matching" %>
+          <% if params[:search].present? %>
+            <% no_results += " '#{params[:search]}'" %>
+          <% end %>
+          <% if params[:category_ids].present? %>
+            <% category_name = (Category.find(params[:category_ids])).name %>
+            <% no_results += " in category '#{category_name}'" %>
+          <% end %>
+          <% if params[:draft_status] === '1' %>
+            <% no_results += " (drafts not included in your search)" %>
+          <% end %>
+          <% if params[:draft_status] === '2' %>
+            <% no_results += " (only drafts were included in your search)" %>
+          <% end %>
+          <%= "#{no_results}."%>
+      <% end %>
+    </div>
+  </div>
+</div>

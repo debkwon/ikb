@@ -3,5 +3,3 @@
 <%= render partial: 'form' %>
 <br/>
 <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Are you REALLY sure you want to delete the article '#{@article.title}'?"} %>
-
-<%= render partial: 'shared/search'%>

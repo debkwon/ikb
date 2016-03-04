@@ -70,7 +70,7 @@ class ArticlesController < ApplicationController
 			@articles = Article.all
 		end
 
-		def full_search
+		def search
 			@categories = Category.all
   	end
   	

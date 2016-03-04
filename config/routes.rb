@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/edit/categories' => 'categories#change', as: 'edit_categories'
   get '/test' => 'articles#test_page', as: 'test_page'
   get '/update_topics' => 'articles#update_topics', as: 'update_topics'
-  get '/search' => 'articles#full_search', as: 'full_search'
+  get '/search' => 'articles#search', as: 'search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
