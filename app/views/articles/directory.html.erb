@@ -25,7 +25,7 @@
 			<% end %>	
 		</div>
 		<div class="col-md-3 pull-right">
-			<% if @found_articles %>
+			<% if @found_articles.present? && params[:search].present? %>
 				<%= render partial: 'shared/search' %>
 			<% end %>
 		</div>
