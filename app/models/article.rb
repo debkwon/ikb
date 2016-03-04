@@ -3,8 +3,8 @@ class Article < ActiveRecord::Base
 	belongs_to :topic
 	belongs_to :category
 	validates  :title, presence: true
-	validates  :topic_id, presence: true
-	validates	 :category_id, presence: true
+	validates  :topic_id, presence: true, numericality: { greater_than: 0, :message => "must be selected"}
+	validates_presence_of	 :category_id, :message => "must be selected"
 
 	attr_accessor :exclude_drafts
 

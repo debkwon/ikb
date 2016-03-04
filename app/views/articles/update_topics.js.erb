@@ -1,5 +1,5 @@
 $(".topics_select").empty();
-$(".topics_select").append($('<option>Select a Topic...</option>'));
+$(".topics_select").append($('<option value="0">Select a Topic...</option>'));
 <% @category_topics.each do |topic| %>
   $(".topics_select").append($('<option value="<%= topic.id %>"><%= topic.name %></option>'));
 <% end %>
