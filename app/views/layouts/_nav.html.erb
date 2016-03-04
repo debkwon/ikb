@@ -9,7 +9,7 @@
         <%= form_tag(request.original_url, method: :get, id: "search-form", class: "navbar-form navbar-right") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search articles..." %>
           <%= submit_tag "Search", class: "btn btn-default btn-sm" %>
-          <button class="btn btn-default btn-sm"><%= link_to "Search+", full_search_path%></button>
+          <%= link_to "<button>Search+</button>".html_safe, full_search_path%>
         <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

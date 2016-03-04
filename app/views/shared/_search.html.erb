@@ -1,4 +1,4 @@
-<% if @found_articles && (params[:search].present? || params[:category_ids].present?) %>
+<% if @found_articles.present? && (params[:search].present? || params[:category_ids].present? || params[:draft_status]).present? %>
 	<%= '.'*500 %>
 		<h3>Search Results</h3>
 			<ul>
@@ -25,5 +25,11 @@
 			<% category_name = (Category.find(params[:category_ids])).name %>
 			<% no_results += " in category '#{category_name}'" %>
 		<% end %>
-		<%= no_results %>
+		<% if params[:draft_status] === '1' %>
+			<% no_results += " (drafts not included in your search)" %>
+		<% end %>
+		<% if params[:draft_status] === '2' %>
+			<% no_results += " (only drafts were included in your search)" %>
+		<% end %>
+		<%= "#{no_results}."%>
 <% end %>
