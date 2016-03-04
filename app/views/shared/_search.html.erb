@@ -17,6 +17,7 @@
 <% end %>
 
 <% if @found_articles.empty? %>
+<br />
 	<% no_results = "There were no articles matching" %>
 		<% if params[:search].present? %>
 			<% no_results += " '#{params[:search]}'" %>

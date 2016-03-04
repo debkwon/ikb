@@ -6,7 +6,7 @@
 
 <div id="hide-topic", style="display:none">
 		<%= f.label :topic, "Topic" %>
-		<%= f.select(:topic_id, @category_topics.collect { |topic| [topic.name, topic.id] }, {:include_blank => "Select a Topic..."}, {:class => 'topics_select'}) %>
+		<%= f.select(:topic_id, @category_topics.collect { |topic| [topic.name, topic.id] }, {}, {:class => 'topics_select'}) %>
 </div>
 	<br />
 	
