@@ -16,11 +16,30 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'devise'
+require_relative 'support/controller_helpers'
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
 
+  config.include ControllerHelpers, type: :controller
+  Warden.test_mode!
+
+  config.after do
+    Warden.test_reset!
+  end
+  config.before(:all) do
+  FactoryGirl.reload
+  end
+
+  config.before(:each) do
+    ::Sunspot.session = ::Sunspot::Rails::StubSessionProxy.new(::Sunspot.session)
+  end
+
+  config.after(:each) do
+    ::Sunspot.session = ::Sunspot.session.original_session
+  end
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods

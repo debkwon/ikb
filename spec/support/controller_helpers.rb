@@ -1,11 +1,7 @@
 module ControllerHelpers
-	def sign_in(admin = double('admin'))
-	      if admin.nil?
-	        allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden, {:scope => :admin})
-	        allow(controller).to receive(:current_admin).and_return(nil)
-	      else
-	        allow(request.env['warden']).to receive(:authenticate!).and_return(admin)
-	        allow(controller).to receive(:current_admin).and_return(admin)
-	      end
-	   end
+  def login_admin(admin=nil)
+    @request.env["devise.mapping"] = Devise.mappings[:admin]
+    admin ||= FactoryGirl.create(:admin)
+    sign_in(admin)
+  end
 end

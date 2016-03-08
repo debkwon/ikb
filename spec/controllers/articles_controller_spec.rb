@@ -1,11 +1,7 @@
 require 'rails_helper'
-include Devise::TestHelpers
 
 RSpec.describe ArticlesController, type: :controller do
-	before :each do
-		@admin = Admin.create(first_name: "Testing ", last_name: "User", email: "testuser@example.com", password: "12345678", password_confirmation: "12345678")
-		sign_in @admin
-	end
+	let!(:admin) { login_admin }
 
 	describe "GET #index" do
 		before { get :index}
@@ -20,7 +16,7 @@ RSpec.describe ArticlesController, type: :controller do
 		end
 	end
 
-	describe "GET #new" do 
+	describe "GET #new" do
 		before { get :new }
 		it "assigns @article" do
 			expect(assigns(:article)).to be_a_new(Article)
@@ -62,7 +58,7 @@ RSpec.describe ArticlesController, type: :controller do
 	describe "POST #create" do
 		context "valid attributes submitted" do
 			before {
-				article_params = { title: "Article Title", content: "meow.meow.meow", topic_id:1 }
+				article_params = { title: "Article Title", content: "meow.meow.meow", topic_id:1, category_id:1 }
 				post :create, article: article_params
 			}
 			it "successfully creates a new article" do
