@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224230638) do
+ActiveRecord::Schema.define(version: 20160309213205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160224230638) do
     t.boolean  "is_draft"
     t.tsvector "textsearchable_index_col"
     t.integer  "category_id"
+    t.string   "video_url"
   end
 
   add_index "articles", ["category_id"], name: "index_articles_on_category_id", using: :btree

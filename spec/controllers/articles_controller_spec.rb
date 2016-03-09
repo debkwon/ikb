@@ -56,13 +56,15 @@ RSpec.describe ArticlesController, type: :controller do
 	end
 
 	describe "POST #create" do
+		let(:article) {build(:article)}
 		context "valid attributes submitted" do
-			before {
-				article_params = { title: "Article Title", content: "meow.meow.meow", topic_id:1, category_id:1 }
-				post :create, article: article_params
-			}
-			it "successfully creates a new article" do
-				expect(Article.count).to eq(1)			
+			# before {
+			# 	article_params = { title: "Article Title", content: "meow.meow.meow", category_id:1, topic_id:1 }
+			# 	post :create, article: article_params
+			# }
+			it "successfully creates a new article" do     
+				post :create, article: attributes_for(:article)
+					expect(Article.count).to eq(1)
 			end
 		end
 	end

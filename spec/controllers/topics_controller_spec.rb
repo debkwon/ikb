@@ -1,12 +1,8 @@
 require 'rails_helper'
-include Devise::TestHelpers
 
 RSpec.describe TopicsController, type: :controller do
-	before :each do
-		@admin = Admin.create(first_name: "Testing ", last_name: "User", email: "testuser@example.com", password: "12345678", password_confirmation: "12345678")
-		sign_in @admin
-	end
-
+	let!(:admin) { login_admin }
+	
 	describe "GET #new" do 
 		before { get :new }
 		it "succesfully gets topic page" do

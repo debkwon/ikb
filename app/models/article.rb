@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
 	validates  :topic_id, presence: true, numericality: { greater_than: 0, :message => "must be selected"}
 	validates_presence_of	 :category_id, :message => "must be selected"
 
-	attr_accessor :exclude_drafts
+	# attr_accessor :exclude_drafts
 
 	searchable do
 		text    :title

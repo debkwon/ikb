@@ -7,10 +7,6 @@ class ArticlesController < ApplicationController
 			@categories = Category.all
 		end
 
-		def test_page
-			@categories = Category.all
-		end
-
 		def directory
 			@categories = Category.all
 		end

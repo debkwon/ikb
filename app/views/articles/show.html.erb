@@ -8,13 +8,17 @@
 						<h3 class="panel-title">
 							<%= @article.title %>
 							<% if @article.is_draft %>
-					    		 <span class="glyphicon glyphicon-pencil"></span>
-					    		
-					    	<% end %>
+					    		 <span class="glyphicon glyphicon-pencil"></span>		    		
+					    <% end %>
 						</h3>	
 					</div>
 						<div class="panel-body">
-						<%= @article.content.html_safe %>
+							<%= @article.content.html_safe %>
+								<div class="embed-container">  
+									<% if @article.video_url.present? %>
+										<%= youtube_embed(@article.video_url)%>
+									<%end%>
+								</div>
 						</div>
 				</div>
 			</div>
