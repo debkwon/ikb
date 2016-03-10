@@ -16,5 +16,10 @@
 !/log/.keep
 /tmp
 
-#Ignore solr/data directory
+#Ignore solr
 solr/data
+solr/test
+solr/development
+solr/default/data
+/log/*.log.lck
+solr/pids
