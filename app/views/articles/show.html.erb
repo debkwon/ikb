@@ -14,15 +14,16 @@
 					</div>
 						<div class="panel-body">
 							<%= @article.content.html_safe %>
-								<div class="embed-container">  
-									<% if @article.video_url.present? %>
-										<%= youtube_embed(@article.video_url)%>
-									<%end%>
-								</div>
 						</div>
-				</div>
+					</div>
+						<% if @article.video_url.present? %>
+							<h4>Video Content:</h4>
+								<div class="embed-container">  
+									<%= youtube_embed(@article.video_url)%>
+								</div>
+						<%end%>
+					</div>
 			</div>
-	</div>
 		<div class="col-md-4 pull-right">
 			<div class="box2">
 				<div class="panel panel-primary">
