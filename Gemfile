@@ -18,6 +18,7 @@ gem 'remotipart', '~> 1.2'
 gem 'sprockets-rails', '~> 2.3'
 gem 'devise'
 gem 'sunspot_rails'
+gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do

@@ -1,0 +1,97 @@
+
+<?xml version="1.0"?>
+
+<!--
+-
+- Sequel Pro XML dump
+- Version 4499
+-
+- http://www.sequelpro.com/
+- https://github.com/sequelpro/sequelpro
+-
+- Host: db1.fracturedatlas.org (MySQL 5.5.40-log)
+- Database: fadb_fa
+- Generation Time Time: 2016-03-08 20:51:31 +0000
+-
+-->
+
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="fadb_fa">
+
+  <table_structure name="kb_article">
+    <field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+    <field field="title" type="varchar(255)" null="NO" key="" default="<null>" extra="" />
+    <field field="content" type="text" null="NO" key="" default="<null>" extra="" />
+    <field field="created_at" type="timestamp" null="NO" key="" default="CURRENT_TIMESTAMP" extra="" />
+    <field field="updated_at" type="timestamp" null="YES" key="" default="<null>" extra="" />
+    <field field="author_user_id" type="int(11)" null="NO" key="" default="<null>" extra="" />
+    <field field="is_staff_only" type="tinyint(1)" null="NO" key="" default="0" extra="" />
+    <field field="is_published" type="tinyint(1)" null="NO" key="" default="0" extra="" />
+    <field field="position" type="smallint(5) unsigned" null="YES" key="" default="<null>" extra="" />
+
+    <options name="kb_article" engine="InnoDB" version="10" row_format="Compact" rows="653" avg_row_length="5620" data_length="3670016" max_data_length="0" index_length="0" data_free="4194304" create_time="2015-05-30 00:47:13" update_time="<null>" collation="utf8mb4_general_ci" create_options="" comment="" />
+  </table_structure>
+
+  <table_data name="kb_article">
+
+  <row>
+    <field name="id">2</field>
+    <field name="title">Adding Admins to an Account</field>
+    <field name="content">If more than one person needs access to your account you can easily add them. 
+
+## What can organization admins do?:
+
+*   Manage your organization's information
+*   Manage any space associated with your organization
+*   Add new spaces or clone existing spaces
+*   Add or remove users from your organization
+
+## Adding Another Admin to Your Venue Account
+1.  Navigate to your Dashboard.
+2.  Click Admins.
+3.  Enter the email address in the User's Email field.
+
+![Add an Admin](/site/Knowledgebase/view_image?id=394 &quot;add an admin&quot;)
+
+Once you enter the email address you'll be prompted to enter a name. If the email address is already associated with an account, it will link to their current login credentials. When you hit Send Invite they will receive an email notification.
+
+## What happens next?
+
+1. The newly added admin will receive an email with the subject line &quot;Invite from (Your venue name)&quot;
+2. They'll be prompted to click on the link in the email to complete the sign up process.
+3. Then, they'll be walked through the process of creating a free Fractured Atlas account.
+4. Once they've entered their account details, they'll complete the process and have access to your venue account and listings!</field>
+    <field name="created_at">2015-05-14 16:07:03</field>
+    <field name="updated_at">2015-09-23 15:29:10</field>
+    <field name="author_user_id">42469</field>
+    <field name="is_staff_only">0</field>
+    <field name="is_published">1</field>
+    <field name="position">10</field>
+  </row>
+
+  <row>
+    <field name="id">3</field>
+    <field name="title">Turning Off Admin Email Notifications</field>
+    <field name="content">There are certain notifications that are critical to keeping your account active, for example reminders to update your listing if you haven't logged in with 6 months as well as new messages from renters. These notifications cannot be opted out of. We promise not to spam you, but we need to be able to contact account owners to maintain a quality service on our site.
+
+**To opt out of non-mandatory email notifications**:
+
+1. Log in and click on &quot;Dashboard&quot; in the upper right hand corner.
+
+2. Under &quot;Options,&quot; select &quot;Manage Notifications&quot;
+
+3. Uncheck the box that says &quot;Email me when I get notification messages.&quot;
+
+ ![Manage Notifications Button on Dashboard](/site/Knowledgebase/view_image?id=545 &quot;Manage Notifications Button on Dashboard&quot;)</field>
+    <field name="created_at">2015-05-14 19:50:14</field>
+    <field name="updated_at">2015-06-03 11:52:47</field>
+    <field name="author_user_id">39550</field>
+    <field name="is_staff_only">0</field>
+    <field name="is_published">1</field>
+    <field name="position">20</field>
+  </row>
+
+</table_data>
+
+</database>
+</mysqldump>

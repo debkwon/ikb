@@ -275,6 +275,7 @@ DEPENDENCIES
   jquery-turbolinks
   launchy
   mini_magick (~> 4.3)
+  nokogiri (~> 1.6, >= 1.6.7.2)
   pg
   rails (= 4.2.5)
   rails_12factor

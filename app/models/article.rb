@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
 	validates  :title, presence: true
 	validates  :topic_id, presence: true, numericality: { greater_than: 0, :message => "must be selected"}
 	validates_presence_of	 :category_id, :message => "must be selected"
-	validate :legit_video
+	# validate :legit_video
 
 	# attr_accessor :exclude_drafts
 
