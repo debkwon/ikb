@@ -13,6 +13,9 @@ class ApplicationController < ActionController::Base
         with(:category_id, params[:category_ids]) if params[:category_ids].present? 
         with(:is_draft, 1) if params[:draft_status] === '2' 
         without(:is_draft, 1) if params[:draft_status] === '1'
+        if params[:meeting_minutes] != '1'
+          without(:topic_id, 27) #this should be the topic id for meeting minutes once the categories are back
+        end
       end
       @found_articles = @search.results
     end

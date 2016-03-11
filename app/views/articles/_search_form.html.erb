@@ -5,6 +5,9 @@
     <%= select_tag "category_ids", options_from_collection_for_select(@categories, "id", "name"), {:include_blank => "Select a Category...", :class => "category_select"}%><br />
     <%= label_tag("Filter Drafts:") %>
     <%= select_tag "draft_status", "<option value='1'>Exclude all drafts</option><option value='2'>Show ONLY drafts</option>".html_safe, {:include_blank => "Select a Draft option"}%>  <br />
+    <%= label_tag("Include Meeting Minutes In Your Search?") %>
+    <%= check_box_tag(:meeting_minutes, '1') %>
+    <br />
     <%= text_field_tag :search, params[:search], placeholder: "Search articles..." %><%= submit_tag "Go", class: "btn btn-primary btn-sm"%>
   <% end %>
 </div>

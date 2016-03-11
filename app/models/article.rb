@@ -12,6 +12,7 @@ class Article < ActiveRecord::Base
 	searchable do
 		text    :title
 		text    :content
+		integer :topic_id
 		integer :category_id 
 		boolean :is_draft
 	end
