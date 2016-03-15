@@ -1,12 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Topic, type: :model do
-  it "raises error when there's no name" do
-	    article = Topic.new(name: nil)
-	    expect{ topic.save! }.to raise_error(ActiveRecord::RecordInvalid)
-  end
-  it "raises error when there's no associated category" do
-	    article = Topic.new(category_id: nil)
-	    expect{ topic.save! }.to raise_error(ActiveRecord::RecordInvalid)
+  let(:topic) { create :topic }
+  describe "POST #create" do 
+    context "with valid params" do
+      it "passes validations" do
+	     expect(topic).to be_valid
+      end
+    end
+    context "with invalid/missing params" do
+      it "will raise an error without name" do
+        topic_nameless = Topic.new(name:"")
+        topic_nameless.valid?
+        expect(topic_nameless.errors[:name]).to include("can't be blank")
+      end
+      it "will raise error without category" do
+        topic_catless = Topic.new(category_id:nil)
+        topic_catless.valid?
+        expect(topic_catless.errors[:category_id]).to include("can't be blank")
+      end
+    end
   end
 end

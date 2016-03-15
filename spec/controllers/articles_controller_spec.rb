@@ -42,7 +42,7 @@ RSpec.describe ArticlesController, type: :controller do
 		end
 	end
 
-	describe "get #change" do
+	describe "GET #change" do
 		before { get :change }
 		it "assigns all articles to @articles" do
 			expect(assigns(:articles)).not_to be_nil
@@ -56,15 +56,44 @@ RSpec.describe ArticlesController, type: :controller do
 	end
 
 	describe "POST #create" do
-		let(:article) {build(:article)}
 		context "valid attributes submitted" do
-			# before {
-			# 	article_params = { title: "Article Title", content: "meow.meow.meow", category_id:1, topic_id:1 }
-			# 	post :create, article: article_params
-			# }
-			it "successfully creates a new article" do     
+			it "creates a new article" do 
 				post :create, article: attributes_for(:article)
-					expect(Article.count).to eq(1)
+				expect(Article.count).to eq(1)
+			end
+			it "flashes a notice of a succesfully added article" do
+				post :create, article: attributes_for(:article)
+				expect(flash[:success]).to eq("Your article has been saved!")
+			end
+			it "redirects to the article just created" do
+				post :create, article: attributes_for(:article)
+				expect(:article).to redirect_to(assigns(:article))
+			end
+		end
+
+		context "invalid or missing params" do
+			it "will render article form for missing title" do
+				post :create, article: attributes_for(:missing_title)
+				expect(:article).to render_template("new")
+			end
+			it "will render article form for missing category" do
+				post :create, article: attributes_for(:missing_category)
+				expect(:article).to render_template("new")
+			end
+			it "will render article form for missing topic" do
+				post :create, article: attributes_for(:missing_topic)
+				expect(:article).to render_template("new")
+			end
+			it "will render article form for missing everything " do
+				post :create, article: attributes_for(:missing_everything)
+				expect(:article).to render_template("new")
+			end
+		end
+	end
+
+	describe "PATCH #update" do
+		context "" do
+			it "" do
 			end
 		end
 	end
