@@ -11,6 +11,8 @@ RSpec.describe Article, type: :model do
     expect{ article.save! }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
-  it "" do
+  it "is valid with all params" do
+    article = Article.new(attributes_for(:article))
+    expect(article).to be_valid
   end
 end

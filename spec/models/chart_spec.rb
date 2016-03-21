@@ -10,5 +10,10 @@ RSpec.describe Chart, type: :model do
         chart = Chart.new(title: nil)
         chart.valid?
         expect(chart.errors[:title]).to include("can't be blank")
-    end
+      end
+      it "raises an error without goal date" do
+        chart = Chart.new(goal_date: nil)
+        chart.valid?
+        expect(chart.errors[:title]).to include("can't be blank")
+      end
   end
