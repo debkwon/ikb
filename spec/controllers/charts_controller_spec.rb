@@ -12,7 +12,7 @@ RSpec.describe ChartsController, type: :controller do
         expect(response).to be_success
       end
       it "renders the index template" do
-        expect(response).to render_template
+        expect(response).to render_template("index")
       end
   end
 
@@ -37,25 +37,22 @@ RSpec.describe ChartsController, type: :controller do
       end
       it "show My Projects page" do
         post :create, chart: attributes_for(:chart)
-        expect(response).to render_template("my_projects")
-        expect(:chart).to redirect_to(assigns(:chart))
+        expect(:chart).to redirect_to("/my_projects")
       end
       it "flashes a success notice" do
         post :create, chart: attributes_for(:chart)
-        expect(flash[:success]).to eq("You started a new project!")
+        expect(flash[:success]).to eq("You're off to a great start!")
       end
     end
   end
 
   describe "GET #my_projects" do
-    before { get :my_projects } do
+    before { get :my_projects }
       it "successfully gets the My Projects page" do
         expect(response).to be_success
       end
       it "shows admin's existing projects" do
-        expect(assigns(:my_projects)).not_to be_nil
+        expect(assigns(:charts)).not_to be_nil
       end
     end
   end
-
-end

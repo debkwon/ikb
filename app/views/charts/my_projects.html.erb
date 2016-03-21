@@ -1,0 +1,13 @@
+<div class= "container">
+  <div class="row">
+    <div class= "col-md-9">
+      <h3>My Current Projects</h3>
+      <%= link_to "Start a New Project", new_chart_path %>
+      <% @charts.each do |chart| %>
+        <ul>
+          <li><%=chart.title%></li>
+        </ul>
+    <% end %>
+    </div>
+  </div>
+</div>

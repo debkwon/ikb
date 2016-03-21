@@ -20,7 +20,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View/Edit All<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View/Edit<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><%=link_to "Articles", edit_articles_path %></li>
             <li><%=link_to "Topics", edit_topics_path %></li>
@@ -28,8 +28,10 @@
           </ul>
         </li>
           <li class="dropdown">
-           <a href= "#"<class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i><%= "(#{current_admin.email})"%></i><span class="caret"></span></a>
+           <a href= "#"<class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i><%= "(#{@admin_name})"%></i><span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><%= link_to "My Projects", my_projects_path %>
+            <li><%= link_to "All Art Charts", charts_path %>
             <li><%= link_to "Log Out", destroy_admin_session_path, method: :delete %></li>
           </ul>
         </li>

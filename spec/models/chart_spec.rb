@@ -1,18 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Chart, type: :model do
-  context "with valid params" do
-    it "passes validations" do
-      chart = Chart.new(title:"My New Project", description: "Something awesome!")
-      expect(chart).to be_valid
+      it "passes validations" do
+        chart = Chart.new(title:"My New Project", description: "Something awesome!", goal_date: "2015-04-01")
+        expect(chart).to be_valid
+      end
+
+      it "raises an error without title" do
+        chart = Chart.new(title: nil)
+        chart.valid?
+        expect(chart.errors[:title]).to include("can't be blank")
     end
   end
-  context "with invalid params"dp
-    it "raises an error without title" do
-      chart = Chart.new(title: nil)
-      chart.valid?
-      expect(chart.errors[:title]).to include("can't be blank")
-  end
-end
-
-end

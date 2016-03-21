@@ -6,12 +6,15 @@ Rails.application.routes.draw do
   resources :articles 
   resources :topics
   resources :categories
+  resources :charts
   get '/directory' => 'articles#directory', as: 'directory'
   get '/edit/articles' => 'articles#change', as: 'edit_articles'
   get '/edit/topics' => 'topics#change', as: 'edit_topics'
   get '/edit/categories' => 'categories#change', as: 'edit_categories'
   get '/update_topics' => 'articles#update_topics', as: 'update_topics'
   get '/search' => 'articles#search', as: 'search'
+  get '/charts' => 'charts#index', as: 'all_charts'
+  get '/my_projects' => 'charts#my_projects', as: 'my_projects'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,8 +3,13 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_action :check_for_search, :admin_name
   
-  before_action :check_for_search
+  def admin_name
+    if admin_signed_in?
+      @admin_name = "#{current_admin.first_name + ' ' + current_admin.last_name}"
+    end
+  end
 
   def check_for_search
     params[:search].present? || params[:category_ids].present? 
@@ -19,5 +24,8 @@ class ApplicationController < ActionController::Base
       end
       @found_articles = @search.results
     end
-  
+
+  private
+
+ 
 end

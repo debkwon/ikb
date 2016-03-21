@@ -6,6 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+  <script>
+    $(function() {
+      $('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
+    });
+  </script>
 </head>
 <body class= "link">
 	<% if admin_signed_in? %>
@@ -15,7 +20,6 @@
 	<% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
-  
 <%= yield %>
 
 </body>

@@ -1,0 +1,12 @@
+<% if @chart.errors.any? %>
+  <div id="error">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@chart.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @chart.errors.full_messages.each do |message| %>
+      <li><%= message %>.</li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

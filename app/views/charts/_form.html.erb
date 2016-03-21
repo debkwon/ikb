@@ -1,0 +1,17 @@
+<div class= "container">
+  <div class="row"> 
+    <div class="col-md-6">
+      <%= form_for @chart do |f| %>
+        <%= f.label :title, "Title" %>
+        <%= f.text_field :title, class: "form-control" %><br />
+        <%= f.label :description, "Description" %>
+        <%= f.text_field :description, class: "form-control" %><br />
+        <%= f.label :goal_date %><br />
+        <%= f.text_field :goal_date, class: "datepicker col-md-3" %><br />
+        <br />
+        <%= f.submit "Start!", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
