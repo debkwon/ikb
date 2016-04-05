@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :topics
   resources :categories
   resources :charts
+  resources :marks
   get '/directory' => 'articles#directory', as: 'directory'
   get '/edit/articles' => 'articles#change', as: 'edit_articles'
   get '/edit/topics' => 'topics#change', as: 'edit_topics'

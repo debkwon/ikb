@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321151221) do
+ActiveRecord::Schema.define(version: 20160331170912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,16 @@ ActiveRecord::Schema.define(version: 20160321151221) do
     t.integer  "creator_id"
   end
 
+  create_table "marks", force: :cascade do |t|
+    t.text     "description"
+    t.datetime "date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "chart_id"
+  end
+
+  add_index "marks", ["chart_id"], name: "index_marks_on_chart_id", using: :btree
+
   create_table "topics", force: :cascade do |t|
     t.text     "name"
     t.datetime "created_at",  null: false
@@ -92,4 +102,5 @@ ActiveRecord::Schema.define(version: 20160321151221) do
   add_index "topics", ["category_id"], name: "index_topics_on_category_id", using: :btree
 
   add_foreign_key "articles", "categories"
+  add_foreign_key "marks", "charts"
 end

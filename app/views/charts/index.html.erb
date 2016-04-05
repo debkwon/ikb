@@ -1,10 +1,12 @@
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+
 <div class= "container">
   <div class="row">
     <div class= "col-md-9">
       <h3>What Everyone's Working On:</h3>
-        <% @charts.each do |chart| %>
-          <%= chart.title %>
-        <% end %>
-    </div>
+       
+        <%= pie_chart Admin.group(:first_name).count %>
+
+     </div>
   </div>
 </div>

@@ -1,0 +1,10 @@
+<h3> Add a new Mark </h1>
+<%= form_for @mark do |f| %>
+  <%= f.hidden_field :chart_id, :value => @chart.id %>
+  <%= f.label :description, "Description" %>
+  <%= f.text_field :description, class: "form-control" %><br />
+  <%= f.label :date %><br />
+  <%= f.text_field :date, class: "datepicker col-md-3" %><br />
+  <br />
+  <%= f.submit "Start!", class: "btn btn-primary" %>
+<% end %>

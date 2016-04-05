@@ -1,3 +1,5 @@
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+
 <div class= "container">
   <div class="row">
     <div class= "col-md-9">
@@ -5,8 +7,13 @@
       <%= link_to "Start a New Project", new_chart_path %>
       <% @charts.each do |chart| %>
         <ul>
-          <li><%=chart.title%></li>
+          <li><%=link_to chart.title, edit_chart_path(chart.id)%></li>
         </ul>
+          <% if chart.marks.present? %>
+            <% chart.marks.each do |mark| %>
+            <h4><%=mark.description%></h4>
+            <%end%>
+          <%end%>
     <% end %>
     </div>
   </div>

@@ -23,5 +23,14 @@ class ChartsController < ApplicationController
     end
   end
 
+  def show
+    @chart = Chart.find(params[:id])
+    @mark = Mark.new
+  end
+
+  def edit
+    @chart = Chart.find(params[:id])
+    @mark = Mark.new
+  end
 
 end

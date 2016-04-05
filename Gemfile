@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
+gem 'chartkick'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '3.2.0.0'
@@ -29,7 +30,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
-  gem 'capybara'
+  gem 'capybara', '~> 2.4.0'
 end
 
 group :development do
