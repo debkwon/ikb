@@ -4,5 +4,5 @@ This is an example CRUD app for staff members to research company policy through
 
 If you want to check out IKB, you can head over to: https://vast-tundra-43506.herokuapp.com/
 
-![signed_in](https://cloud.githubusercontent.com/assets/8889161/23804683/ed6c3e8c-0588-11e7-9453-b0de47d214c2.png)
+https://cloud.githubusercontent.com/assets/8889161/23804683/ed6c3e8c-0588-11e7-9453-b0de47d214c2.png
 
